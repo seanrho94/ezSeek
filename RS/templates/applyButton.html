@@ -1,0 +1,19 @@
+{% if not user.is_authenticated %}
+ <form method="post" action="/apply/{{object.id}}">
+ {% csrf_token %}
+ <button class="btn btn-outline-info btn-lg mt-1 mb-1" type="submit">Apply</button>
+ </form> 
+{% endif %}
+
+{% if user.is_authenticated %}
+ {% ifequal user.first_name "i" %}
+  {% csrf_token %}
+  {% if is_applied %}
+  <label class="btn btn-info active btn-lg mt-1 mb-1">
+    Applied <i class="icon-check m-auto"></i>
+  </label>
+  {% else %}
+   <button class="btn btn-outline-info btn-lg mt-1 mb-1" type="submit" id="apply" name="applyJob" onclick="applyJob({{object.id}})">Apply</button>
+  {% endif %}
+ {% endifequal %}
+{% endif %}

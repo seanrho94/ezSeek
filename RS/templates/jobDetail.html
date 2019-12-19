@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1 class="mb-3">Job Detail</h1>
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <h2 class="article-title">{{ object.title }}</h2>
+    
+    <div id="apply-section">
+       {% include 'applyButton.html'%}
+    </div>
+     
+        
+        {% if object.author == user %}
+          <div>
+            <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'myApplicant' object.id %}">View Applicants</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'jobUpdate' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'jobDelete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+
+      </div>
+      <p class="article-content"><b class="font-weight-bold">Location: </b>{{ object.author.company.location }}</p>
+      <p class="article-content"><b class="font-weight-bold">Industry: </b>{{ object.author.company.industry }}</p>
+      <p class="article-content">{{ object.content }}</p>
+      <a class="mr-2" href="{% url 'userJob' object.author.company.user.username %}"> More jobs from this company </a>
+    
+     
+    </div>
+  </article>
+{% endblock content %}
+

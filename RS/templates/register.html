@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content%}
+    <h1 class="mb-3">Signup </h1> 
+
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <a class="article-title m-auto" href="{% url 'jsRegister' %}"><i class="icon-user m-auto text-primary"></i></a>
+            </div>
+            <h3><a class="article-title" href="{% url 'jsRegister' %}">JobSeeker</a></h3>
+            <p class="lead mb-0">Create your JobSeeker account to explore jobs.</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <a class="article-title m-auto" href="{% url 'companyRegister' %}"><i class="icon-organization m-auto text-primary"></i></a>
+            </div>
+            <h3><a class="article-title" href="{% url 'companyRegister' %}">Company</a></h3>
+            <p class="lead mb-0">Create your Company account to post jobs and find candidates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock content %}
