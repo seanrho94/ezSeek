@@ -3,28 +3,32 @@
 {% block content %}
     <h1 class="mb-3">Jobs</h1>
 
-    <section class="mb-2">
+    <section class="mb-3">
      <form class="mb-2" action="" method="GET">
        {% crispy form %}
      </form>
     </section>
 
     {% for object in object_list %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <h2><a class="article-title" href="{% url 'jobDetail' object.id %}">{{ object.title }}</a></h2>
-              <a class="mr-2" href="{% url 'companyDetail' object.author.company.id %}">{{ object.author }}</a>
-              <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <p class="article-content"><b class="font-weight-bold">Location:</b>{{ object.author.company.location }}
-            <b class="font-weight-bold">Industry:</b>{{ object.author.company.industry }}</p>
-            <p class="article-content">{{ object.content|safe|truncatewords:"50"|linebreaks }}</p>
-          </div> 
-        </article>
-          {% empty %}
-            <p class="article-content"><b class="font-weight-bold">No jobs posted</b></p> 
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+         <h4 class="card-title">
+          <a class="article-title" href="{% url 'jobDetail' object.id %}">{{ object.title }}</a>
+         </h4>
+          <a class="mr-2" href="{% url 'companyDetail' object.author.company.id %}">{{ object.author }}</a>
+          <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+        </div>
+         <p class="article-content"><b class="font-weight-bold">Location:</b>{{ object.author.company.location }}
+         <b class="font-weight-bold">Industry:</b>{{ object.author.company.industry }}</p>
+         <p class="article-content">{{ object.content|safe|truncatewords:"50"|linebreaks }}</p>
+       </div>
+     </div>
+    </div>
+    {% empty %}
+    <p class="article-content"><b class="font-weight-bold">No jobs posted</b></p> 
     {% endfor %}
 
     {% if is_paginated %}

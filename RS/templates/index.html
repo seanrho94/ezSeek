@@ -13,7 +13,9 @@
     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
      <div class="row">
       <div class="col-12 col-md-3 mx-auto"> <!-- mx-auto to center -->
-       <a type="submit" class="btn btn-block btn-lg btn-primary" href="{% url 'register' %}">Sign up!</a>
+       <form action="{% url 'register' %}">
+       <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+       </form>
       </div>
      </div>
     </div>
@@ -97,7 +99,9 @@
     <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
      <div class="row">
       <div class="col-12 col-md-3 mx-auto"> <!-- mx-auto to center -->
-       <a type="submit" class="btn btn-block btn-lg btn-primary" href="{% url 'register' %}">Sign up!</a>
+       <form action="{% url 'register' %}">
+       <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+       </form>
       </div>
      </div>
      </div>

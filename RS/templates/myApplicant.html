@@ -2,36 +2,40 @@
 {% block content %}
     <h1 class="mb-3">My Applicants - {{ user }}</h1>
     {% for post in posts %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ post.js_id.user.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <h2><a class="article-title" href="{% url 'jobseekerDetail' post.js_id.id %}">{{ post.js_id }}</a></h2>
-            </div>
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle article-img" src="{{ post.js_id.user.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+         <h2 class="card-title">
+          <a class="article-title" href="{% url 'jobseekerDetail' post.js_id.id %}">{{ post.js_id }}</a>
+         </h2>
+        </div>
         <div class="article-metadata">
         <p class="article-content"><b class="font-weight-bold">Status:</b>{{ post.status }}</p>
         </div>
         <div class="row">
-        &nbsp;&nbsp;&nbsp; <!--Spacing between buttons-->
+        &nbsp;&nbsp;&nbsp;&nbsp; <!--Spacing -->
         <div class="col-xs-1">
         <form method="post" action="/acceptApplicant/{{post.application_id}}">
         {% csrf_token %}
-        <button class="btn btn-success btn-sm mt-1 mb-1" class type="submit">Accept</button>
+        <button class="btn btn-success btn-sm mt-1 mb-1 mr-2" class type="submit">Accept</button>
         </div>
         </form> 
-        &nbsp;&nbsp;&nbsp; <!--Spacing between buttons-->
         <div class="col-xs-1">
         <form method="post" action="/rejectApplicant/{{post.application_id}}">
         {% csrf_token %}
-        <button class="btn btn-danger btn-sm mt-1 mb-1" class type="submit">Reject</button>
+        <button class="btn btn-danger btn-sm mt-1 mb-1 mr-2" class type="submit">Reject</button>
         </div>
         </form> 
         </div>
-          </div>
-        </article>
-          {% empty %}
-            <p class="article-content"><b class="font-weight-bold">Currently, there is no applicant for this job</b></p> 
+       </div>
+     </div>
+    </div>
     {% endfor %}
+
+
+
 
     {% if is_paginated %}
 

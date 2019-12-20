@@ -2,14 +2,20 @@
 {% block content %}
     <h1 class="mb-3">My Applications - {{ view.kwargs.username }}</h1>
     {% for post in posts %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <h2><a class="article-title" href="{% url 'jobDetail' post.job_id.id %}">{{ post.job_id }}</a></h2>
-            </div>
-            <p class="article-content"><b class="font-weight-bold">Status:</b>{{ post.status }}</p>
-          </div>
-        </article>
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle article-img" src="{{ post.job_id.author.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+         <h2 class="card-title">
+          <a class="article-title" href="{% url 'jobDetail' post.job_id.id %}">{{ post.job_id }}</a>
+         </h2>
+          <a class="mr-2" href="{% url 'companyDetail' post.job_id.author.company.id %}">{{ post.job_id.author }}</a>
+        </div>
+          <p class="article-content"><b class="font-weight-bold">Status:</b>{{ post.status }}</p>
+       </div>
+     </div>
+    </div>
     {% endfor %}
 
     {% if is_paginated %}

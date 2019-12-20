@@ -5,27 +5,29 @@
     {% if user.is_authenticated %}
     {% ifequal user.first_name "i" %}
     {% if jobseeker %}
-    <div class="content-section">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-          <div class="article-metadata">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          </div>
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        </div>
           <p class="article-content"><b class="font-weight-bold">Email: </b>{{ user.email }}</p>
           <p class="article-content"><b class="font-weight-bold">Name: </b>{{ jobseeker.name }}</p>
           <p class="article-content"><b class="font-weight-bold">Phone: </b>{{ jobseeker.phone_no }}</p>
           <p class="article-content"><b class="font-weight-bold">Location: </b>{{ jobseeker.location  }}</p>
           <p class="article-content"><b class="font-weight-bold">Qulification: </b>{{ jobseeker.qualification  }}</p>
           <p class="article-content"><b class="font-weight-bold">Profession: </b>{{ jobseeker.profession  }}</p>
-          <p class="article-content"><b class="font-weight-bold">Bio: </b>{{ jobseeker.bio  }}</p>        
-        </div>
-      </div>
+          <p class="article-content"><b class="font-weight-bold">Bio: </b>{{ jobseeker.bio  }}</p> 
+       </div>
+     </div>
+    </div>
       {% endif %}
+      <div class="card border p-3 mb-4">
       <form method="POST" enctype="multipart/form-data">
        {% csrf_token %}
         <fieldset class="form-group">
-         <legend class="border-bottom mb-4">Profile Info</legend>
+         <legend class="border-bottom mb-4">Update Profile Info</legend>
           {{ u_form|crispy }}
           {{ p_form }}
         </fieldset>
@@ -33,31 +35,34 @@
           <button class="btn btn-outline-info" type="submit">Update</button>
          </div>
       </form>
+      </div>
       {% endifequal %}
       {% endif %}
 
     {% if user.is_authenticated %}
     {% ifequal user.first_name "c" %}
     {% if company %}
-    <div class="content-section">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-          <div class="article-metadata">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          </div>
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        </div>
           <p class="article-content"><b class="font-weight-bold">Email: </b>{{ user.email }}</p>
           <p class="article-content"><b class="font-weight-bold">Name: </b>{{ company.name }}</p>
           <p class="article-content"><b class="font-weight-bold">Industry: </b>{{ company.industry }}</p>
           <p class="article-content"><b class="font-weight-bold">Location: </b>{{ company.location }}</p>  
-          <p class="article-content"><b class="font-weight-bold">Bio: </b>{{ company.bio }}</p>      
-        </div>
-      </div>
-    {% endif %}
+          <p class="article-content"><b class="font-weight-bold">Bio: </b>{{ company.bio }}</p> 
+       </div>
+     </div>
+    </div>
+      {% endif %}
+      <div class="card border p-3 mb-4">
       <form method="POST" enctype="multipart/form-data">
        {% csrf_token %}
         <fieldset class="form-group">
-         <legend class="border-bottom mb-4">Profile Info</legend>
+         <legend class="border-bottom mb-4">Update Profile Info</legend>
           {{ u_form|crispy }}
           {{ p_form }}
         </fieldset>
@@ -65,9 +70,8 @@
           <button class="btn btn-outline-info" type="submit">Update</button>
          </div>
       </form>
+      </div>
     {% endifequal %}
     {% endif %}
 
-      
-    </div>
 {% endblock content %}

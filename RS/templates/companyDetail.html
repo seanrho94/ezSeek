@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
   <h1 class="mb-3">Company Profile</h1>
-    <div class="content-section">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ object.user.profile.image.url }}">
-        <div class="media-body">
-          <div class="article-metadata">
-          <h2 class="account-heading">{{ object.user.username }}</h2>
-          </div>
+    <div>
+     <div class="media border p-3 mb-2">
+      <img class="rounded-circle account-img" src="{{ object.user.profile.image.url }}">
+       <div class="card h-100 w-100 border-0">
+        <div class="article-metadata">
+         <h2 class="card-title">
+          {{ object.user.username }}
+         </h2>
+        </div>
           <p class="article-content"><b class="font-weight-bold">Name: </b>{{ company.name }}</p>
           <p class="article-content"><b class="font-weight-bold">Industry: </b>{{ company.industry }}</p>
           <p class="article-content"><b class="font-weight-bold">Location: </b>{{ company.location }}</p>  
           <p class="article-content"><b class="font-weight-bold">Email: </b>{{ object.user.email }}</p>
           <p class="article-content"><b class="font-weight-bold">Bio: </b>{{ company.bio }}</p>
-          <a class="mr-2" href="{% url 'userJob' object.user.username %}"> View jobs from {{ object.user.username }}</a>      
-        </div>
-      </div>
+          <a class="mr-2" href="{% url 'userJob' object.user.username %}"> View jobs from {{ object.user.username }}</a> 
+       </div>
+     </div>
+    </div>
 {% endblock content %}
 
 
