@@ -16,6 +16,8 @@
        </div>
      </div>
     </div>
+    {% empty %}
+<p class="article-content"><b class="font-weight-bold">You have not applied for jobs yet</b></p>
     {% endfor %}
 
     {% if is_paginated %}

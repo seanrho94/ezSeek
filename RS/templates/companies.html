@@ -6,11 +6,9 @@
      <div class="media border p-3 mb-2">
       <img class="rounded-circle article-img" src="{{ company.user.profile.image.url }}">
        <div class="card h-100 w-100 border-0">
-        <div class="article-metadata">
          <h2 class="card-title">
           <a class="article-title" href="{% url 'companyDetail' company.id %}">{{ company.user.username }}</a>
          </h2>
-        </div>
        </div>
      </div>
     {% empty %}
