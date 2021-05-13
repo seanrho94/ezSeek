@@ -1,5 +1,13 @@
+---Environment Variable---
+For Ubuntu, use nano .bashrc instead of .bash_profile.
+
+
+---Installing django_on_heroku---
 pip install django_on_heroku
 
 Then in settings.py:
 import django_on_heroku
 django_on_heroku.settings(locals())
+
+
+
