@@ -60,6 +60,6 @@ class Application(models.Model):
     js_id = models.ForeignKey(JobSeeker, on_delete = models.CASCADE)
     company_id = models.ForeignKey(Company, on_delete = models.CASCADE)
     job_id = models.ForeignKey(Post, on_delete = models.CASCADE)
-    status = models.CharField(default='In Progress', max_length=40)
+    status = models.CharField(default='In Progress', max_length=200)
 
 
