@@ -28,9 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # UnComment this DEBUG variable if you are on local machine.
-DEBUG = True
+#DEBUG = True
 # Comment this DEBUG variable if you are on local machine.
-#DEBUG = (os.environ.get('DEBUG_VALUE') == 'TRUE')
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'TRUE')
 
 ALLOWED_HOSTS = ['*']
 
