@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # UnComment this secret key if you are on local machine.
-SECRET_KEY = 'ci6c%jww90vv&@-0o929m@c5z0d!0#dzj#_e$b^s!n-ogs)%+1'
+#SECRET_KEY = 'ci6c%jww90vv&@-0o929m@c5z0d!0#dzj#_e$b^s!n-ogs)%+1'
 # Comment this secret key if you are on local machine.
-#SECRET_KEY = os.environ.get('SECRET_KEY') 
+SECRET_KEY = os.environ.get('SECRET_KEY') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # UnComment this DEBUG variable if you are on local machine.
